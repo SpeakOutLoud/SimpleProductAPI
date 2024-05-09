@@ -164,8 +164,8 @@ namespace SimpleProductAPI.UnitTests
             var result = await controller.PutProduct(1, product);
 
             // Assert
-            var noContentResult = Assert.IsType<NoContentResult>(result);
-            noContentResult.StatusCode.Should().Be(204);
+            var createdAtActionResult = Assert.IsType<CreatedAtActionResult>(result);
+            createdAtActionResult.RouteValues["id"].Should().Be(1);
         }
 
         [Fact]

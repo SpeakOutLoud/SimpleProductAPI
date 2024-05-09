@@ -81,7 +81,7 @@ namespace SimpleProductAPI.Controllers
             existingProduct.Description = productDto.Description;
 
             await _dataRepository.UpdateAsync(existingProduct);
-            return NoContent();
+            return CreatedAtAction(nameof(GetProduct), new { id = existingProduct.Id }, existingProduct);
         }
 
         // DELETE: api/products/{id}
